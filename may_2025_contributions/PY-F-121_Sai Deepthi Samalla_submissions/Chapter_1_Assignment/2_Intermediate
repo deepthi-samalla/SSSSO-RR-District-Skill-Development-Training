@@ -1,0 +1,45 @@
+1. Compare Python with Java in terms of syntax simplicity and productivity.
+* Simplicity: Python (very simple, less verbose, indentation); Java (verbose, strict, curly braces).
+* Productivity: Python (higher, rapid dev, vast libraries); Java (lower for quick dev, robust for large enterprise).
+
+2. Write short notes on Python's role in: (a) Data Science (b) Web Development
+* (a) Data Science: Dominant for analysis, ML/DL, visualization (NumPy, Pandas, TensorFlow).
+* (b) Web Development: Popular for backend, APIs (Django, Flask); powers major sites.
+
+3. List any 4 popular Python frameworks/libraries and their use cases.
+* Django: Web framework for complex web apps.
+* Flask: Micro-web framework for simple web apps/APIs.
+* NumPy: Numerical computing, array operations.
+* Pandas: Data analysis, manipulation, cleaning.
+
+4. What are some limitations of Python despite its popularity?
+* Slower execution speed.
+* Higher memory consumption.
+* Not primary for native mobile dev.
+* Runtime type errors.
+* GIL limits CPU parallelism.
+
+5. How does Python support rapid prototyping and development?
+* Concise syntax, vast libraries (less code needed), no compilation step (instant testing).
+
+6. Why is Python considered a dynamically typed language?
+* Variable types are checked/determined at runtime, not declared or fixed during coding.
+
+7. How do readability and indentation in Python differ from other languages?
+* Readability: Core philosophy, clean, English-like syntax.
+* Indentation: Mandatory, defines code blocks (vs. optional, uses curly braces in others).
+
+8. What makes Python open source? How can you contribute to it?
+* Source code is free and publicly available, developed by community.
+* Contribute: code, docs, bug reports, testing, community support.
+
+9. Find and list at least 5 real-world companies that use Python and what they use it for.
+* Google: Search, YouTube, ML/AI.
+* Netflix: Recommendation engine, data analysis.
+* Instagram: Backend (Django framework).
+* Spotify: Backend, data analysis, recommendations.
+* NASA: Scientific programming, data analysis.
+
+10. Explain the phrase “Python fits everywhere” with examples.
+* Highlights its extreme versatility across diverse domains due to extensive libraries.
+* Examples: Web dev, Data Science, AI, Automation, Scientific computing, DevOps.

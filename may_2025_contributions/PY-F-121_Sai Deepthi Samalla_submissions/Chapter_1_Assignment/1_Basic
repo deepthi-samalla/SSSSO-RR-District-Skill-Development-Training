@@ -1,0 +1,29 @@
+1. Who created Python and in which year?
+* Guido van Rossum, 1991.
+
+2. What are some major goals behind Python's development?
+* Easy to learn/read, open source, extensible, productive.
+
+3. Name three key applications of Python in the real world.
+* Web Development, Data Science/ML, Automation.
+
+4. List five areas or domains where Python is used extensively.
+* Web Development, Data Science, AI/ML, Scripting, Scientific Computing.
+
+5. Why is Python called a "high-level" programming language?
+* Abstracts low-level details (like memory), lets programmers focus on logic.
+
+6. Write any 3 features of Python that make it beginner-friendly.
+* Simple syntax, automatic memory management, extensive libraries.
+
+7. What does "interpreted language" mean in Python?
+* Code is executed line by line by an interpreter at runtime.
+
+8. How is Python different from compiled languages like C++?
+* Python: Interpreted, generally slower, highly portable. C++: Compiled, generally faster, platform-specific.
+
+9. Give two examples of industries where Python is applied.
+* Finance, Healthcare.
+
+10. Why do educational institutes prefer teaching Python first?
+* Simple/readable syntax, allows focus on concepts, versatile.

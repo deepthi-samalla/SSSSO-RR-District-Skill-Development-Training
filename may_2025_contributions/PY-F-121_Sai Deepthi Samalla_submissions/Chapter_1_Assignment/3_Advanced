@@ -1,0 +1,36 @@
+1. Research and explain how Python has evolved from version 1.0 to version 3.x.
+* Python 1.0 (1994): Early features.
+* Python 2.x (2000-2010s): Introduced key features (list comps, garbage collection), widely adopted.
+* Python 3.x (2008-present): Major backward-incompatible shift for clarity, Unicode default, print() as function, better design.
+
+2. Describe how Python supports multiple programming paradigms.
+* Supports Object-Oriented (classes, objects), Procedural (functions, sequential), and Functional (higher-order functions) paradigms.
+
+3. Compare Python with another modern language (e.g., Go or Rust) in terms of performance and community.
+* Performance: Python (interpreted, slower CPU-bound); Go/Rust (compiled, much faster, better concurrency).
+* Community: Python (very large, diverse, beginner-friendly); Go/Rust (smaller, growing, focused on systems/performance).
+
+4. Explain how Python is used in Artificial Intelligence and Machine Learning.
+* Dominant due to libraries (TensorFlow, PyTorch, Scikit-learn). Used for data preprocessing, model building, training, and deployment in AI/ML tasks.
+
+5. Write a paragraph discussing how Python's philosophy (as per the Zen of Python) influences its design.
+* The Zen emphasizes readability, simplicity, and explicitness, leading to Python's clean syntax, mandatory indentation, and consistent design. This fosters easy-to-understand and maintainable code.
+
+6. How is Python used in embedded systems and IoT, despite being an interpreted language?
+* Used for higher-level logic, prototyping, data processing, and cloud connectivity. MicroPython/CircuitPython are optimized versions for resource-limited microcontrollers in IoT devices.
+
+7. Explain how Python has become the dominant language in the data science ecosystem.
+* Due to its unmatched ecosystem of powerful libraries (NumPy, Pandas, ML/DL frameworks), combined with its simplicity, readability, vast community support, and strong integration capabilities.
+
+8. List and describe any 3 open-source Python projects and what they aim to solve.
+* NumPy: Numerical computing, efficient array operations.
+* Django: High-level web framework for secure, scalable web apps.
+* TensorFlow: ML platform for building/training deep neural networks.
+
+9. Discuss the trade-off between Python's flexibility and its execution speed.
+* Python's flexibility (dynamic typing, high-level) enables rapid development but incurs overhead, leading to slower execution speed compared to compiled languages. It's fast to write, but sometimes slower to run.
+
+10. Prepare a presentation or infographic summarizing Python's journey, strengths, and future.
+* Journey: Created 1991 (Guido), evolved through 2.x to 3.x (major redesign).
+* Strengths: Readability, versatility, vast ecosystem, strong community, beginner-friendly.
+* Future: Continued growth in AI/ML, data science, web, automation; ongoing performance improvements.

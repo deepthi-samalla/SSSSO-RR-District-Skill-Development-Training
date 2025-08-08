@@ -4,32 +4,23 @@ from dateutil.relativedelta import relativedelta
 
 app = Flask(__name__)
 
-# This function will handle the main page and the form submission
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    """
-    Renders the main page and processes form submissions for age calculation.
-
-    Handles GET requests to display the empty form.
-    Handles POST requests to validate user input and calculate the age,
-    time until next birthday, and weekday of birth.
-    """
+    
     error = None
     age_result = None
     next_birthday_info = None
     weekday_of_birth = None
 
-    # Retrieve today's date for calculations and form validation
     today = date.today()
 
     # When the user submits the form via a POST request
     if request.method == 'POST':
-        # Get the form data. Using .get() prevents KeyErrors if a field is missing.
         birth_year_str = request.form.get('birth_year')
         birth_month_str = request.form.get('birth_month')
         birth_day_str = request.form.get('birth_day')
 
-        # --- Server-Side Input Validation ---
         try:
             # All inputs are converted to integers for validation
             birth_year = int(birth_year_str) if birth_year_str else None
@@ -73,7 +64,7 @@ def index():
                     'years': age.years,
                     'months': age.months,
                     'days': age.days,
-                    # Calculate total hours for a fun, extra detail
+                    # Calculate total hours for extra detail
                     'hours': int((today - birth_date).total_seconds() / 3600)
                 }
 
@@ -105,14 +96,12 @@ def index():
         age_result=age_result,
         next_birthday_info=next_birthday_info,
         weekday_of_birth=weekday_of_birth,
-        # Pass back previous inputs to keep form sticky on errors
         prev_year=request.form.get('birth_year', ''),
         prev_month=request.form.get('birth_month', ''),
         prev_day=request.form.get('birth_day', ''),
-        date=date # Pass the date object for max year in HTML
+        date=date
     )
 
 if __name__ == '__main__':
     # Running the app
-    # In production, use a WSGI server like Gunicorn
     app.run(debug=True)

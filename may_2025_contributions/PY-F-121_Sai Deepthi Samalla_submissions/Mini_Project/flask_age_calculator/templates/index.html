@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='logo.png') }}">
+    
+    <style>
+        /*
+        * A clean and modern CSS style for the Age Calculator.
+        * This block includes a color scheme based on the logo,
+        * correct sizing for the container, and a static background image.
+        */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e6f7ff; /* Lighter, more vibrant background */
+            
+            /* Background image provided by the user */
+            background-image: url('{{ url_for('static', filename='background.png') }}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed; /* This prevents the background from moving when scrolling */
+            
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            /* Changed width from 600px to 450px for a more compact design */
+            width: 450px;
+            max-width: 90%;
+            background-color: #fff; /* A clean white card */
+            padding: 20px;
+            border-radius: 20px; /* More rounded corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+            text-align: center;
+            box-sizing: border-box;
+            border: 2px solid #00796b; /* Accent border color */
+        }
+
+        h1 {
+            color: #00796b; /* Dark teal heading color */
+            margin-bottom: 30px;
+            font-size: 2.8em;
+            font-weight: 600;
+        }
+        
+        /* Styling for the logo image */
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Increased gap */
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px; /* Slightly increased gap */
+            text-align: left;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #333; /* Darker label color */
+        }
+        
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 15px; /* Increased padding */
+            border: 2px solid #dcdcdc;
+            border-radius: 10px;
+            font-size: 1.1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input[type="number"]:focus {
+            border-color: #00796b; /* Dark teal on focus */
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(0, 121, 107, 0.2);
+        }
+
+        form button {
+            background-color: #ff9800; /* A vibrant orange button */
+            color: white;
+            padding: 16px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        form button:hover {
+            background-color: #e68a00; /* A darker orange on hover */
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced Result Display */
+        .result {
+            margin-top: 30px;
+            padding: 30px;
+            background-color: #e0f7fa;
+            border: 1px solid #b2ebf2;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+        
+        .result h2 {
+            color: #00796b;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        
+        /* New styling for the professional result display */
+        .professional-result {
+            margin: 20px 0;
+        }
+
+        .professional-result p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px 0;
+        }
+        
+        .professional-result strong {
+            font-weight: 700;
+            color: #004d40;
+        }
+
+        .error {
+            color: #b71c1c;
+            background-color: #ffcdd2;
+            border-color: #ef5350;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        /* New styling for extension results */
+        .extension-result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #b2ebf2; /* Light teal */
+            border-radius: 10px;
+            border: 1px solid #80deea;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .extension-result p {
+            margin: 5px 0;
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #004d40;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+        <h1>Age Calculator</h1>
+        <form method="post" action="/">
+            <div class="form-group">
+                <label for="birth_year">Enter the year of birth:</label>
+                <input type="number" id="birth_year" name="birth_year" placeholder="e.g., 1990" min="1900" max="{{ date.today().year }}" value="{{ prev_year }}" required>
+            </div>
+            <div class="form-group">
+                <label for="birth_month">Enter the month of birth (Optional, 1-12):</label>
+                <input type="number" id="birth_month" name="birth_month" placeholder="e.g., 01" min="1" max="12" value="{{ prev_month }}">
+            </div>
+            <div class="form-group">
+                <label for="birth_day">Enter the day of birth (Optional, 1-31):</label>
+                <input type="number" id="birth_day" name="birth_day" placeholder="e.g., 25" min="1" max="31" value="{{ prev_day }}">
+            </div>
+            <button type="submit">Calculate Age</button>
+        </form>
+        {% if age_result %}
+        <div class="result">
+            <h2>Your age details:</h2>
+            <div class="result-details">
+                <p>Your exact age: <strong>{{ age_result['years'] }}</strong> years, <strong>{{ age_result['months'] }}</strong> months, and <strong>{{ age_result['days'] }}</strong> days.</p>
+                <p>You have been alive for approximately <strong>{{ age_result['hours'] }}</strong> hours.</p>
+                <p>You were born on a <strong>{{ weekday_of_birth }}</strong>.</p>
+            </div>
+            
+            {% if next_birthday_info %}
+                <div class="extension-result">
+                    <p>Your next birthday is in <strong>{{ next_birthday_info['months'] }}</strong> months and <strong>{{ next_birthday_info['days'] }}</strong> days.</p>
+                </div>
+            {% endif %}
+        </div>
+    {% elif error %}
+        <div class="error">
+            <p>{{ error }}</p>
+        </div>
+    {% endif %}
+</div>
+        
+</body>
+</html>
